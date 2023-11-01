@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>냥냥펀치</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const btn = document.querySelector('button')
+    let cnt = 1
+    const URL = 'https://api.thecatapi.com/v1/images/search/'
+    const btnHandler = function (event) {
+      axios({
+        method: 'get',
+        url: URL,        
+      })
+      .then((response) => {
+        const imgTag = document.createElement('img')
+        imgTag.style = 'display: block; width: 50rem'
+        imgTag.src = response.data[0].url
+        document.body.appendChild(imgTag)
+        cnt ++
+        console.log(cnt)
+      })
+    }
+    btn.addEventListener('click', btnHandler)
+  </script>
+</body>
+
+</html>
