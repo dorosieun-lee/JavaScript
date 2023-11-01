@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+  <section>
+    <article class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </article>
+    <!-- 아래에 새로운 card 생성 및 추가 -->
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script>
+    const newCard = document.createElement('article')
+    newCard.setAttribute('class', 'card')
+    newCard.setAttribute('style','width: 18rem;')
+    const cardBody = document.createElement('div')
+    cardBody.setAttribute('class', 'card-body')
+    const cardTitle = document.createElement('h5')
+    cardTitle.textContent = '새로운 카드 제목'
+    cardTitle.setAttribute('class', 'card-title')
+    const cardText = document.createElement('p')
+    cardText.setAttribute('class', 'card-text')
+    // cardText.setAttribute('style', 'color: red;')
+    cardText.textContent = '새로운 카드 내용'
+  
+    cardBody.appendChild(cardTitle)
+    cardBody.appendChild(cardText)
+    newCard.appendChild(cardBody)
+    const section = document.querySelector('section')
+    section.appendChild(newCard)
+
+    const oldCard = document.querySelector("body > section > article:nth-child(1)")
+    section.removeChild(oldCard)
+  </script>
+  </body>
+</html>
